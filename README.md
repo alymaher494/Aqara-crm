@@ -1,36 +1,232 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏢 Aqara Plus CRM
 
-## Getting Started
+نظام إدارة علاقات العملاء المتكامل للعقارات - حل SaaS متقدم لإدارة العملاء والعقارات والمبيعات
 
-First, run the development server:
+## ✨ الميزات الرئيسية
 
+### 👥 إدارة الموظفين
+- **إدارة شاملة للموظفين**: إضافة، تعديل، حذف الموظفين
+- **نظام الصلاحيات**: إدارة صلاحيات الموظفين حسب الدور
+- **معلومات تفصيلية**: البيانات الشخصية، المنصب، القسم، الراتب
+- **حالات الموظفين**: نشط، غير نشط، معلق
+
+### ⏰ نظام الحضور والانصراف
+- **تسجيل الحضور الجغرافي**: تحديد الموقع باستخدام GPS
+- **نطاق الحضور**: تحديد مسافة الحضور (15 متر من مقر الشركة)
+- **سجلات مفصلة**: وقت الحضور والانصراف، الموقع، IP Address
+- **تقارير الحضور**: إحصائيات مفصلة لساعات العمل
+- **مرونة الدخول**: إمكانية الدخول للنظام من أي مكان لمتابعة المهام
+
+### 🏠 إدارة العقارات
+- **إدارة الوحدات**: شقق، فيلات، محلات تجارية
+- **حالات العقارات**: متاح، محجوز، مباع، قيد الإنشاء
+- **تفاصيل شاملة**: السعر، المساحة، الموقع، الصور
+- **متابعة المشاريع**: إدارة المشاريع العقارية
+
+### 👤 إدارة العملاء
+- **قاعدة بيانات العملاء**: معلومات شاملة للعملاء المحتملين
+- **مصادر العملاء**: تتبع مصدر كل عميل
+- **حالات العملاء**: جديد، متابع، محول، مكتمل
+- **استيراد البيانات**: رفع ملفات Excel للعملاء
+
+### 📋 إدارة المهام
+- **مهام متنوعة**: مكالمات، زيارات، متابعات
+- **أولويات المهام**: عالية، متوسطة، منخفضة
+- **حالات المهام**: معلق، قيد التنفيذ، مكتمل
+- **ربط بالعملاء**: ربط المهام بالعملاء المعنيين
+
+### 📱 الحملات التسويقية
+- **حملات الواتساب**: إرسال رسائل جماعية
+- **إدارة الرسائل**: نصوص مخصصة للحملات
+- **تتبع النتائج**: إحصائيات الحملات والردود
+- **جدولة الإرسال**: تحديد مواعيد إطلاق الحملات
+
+### 📊 التقارير والإحصائيات
+- **لوحة تحكم تفاعلية**: إحصائيات فورية
+- **تقارير مفصلة**: تقارير المبيعات والأداء
+- **رسوم بيانية**: عرض البيانات بطريقة مرئية
+- **تصدير البيانات**: تصدير التقارير بصيغ مختلفة
+
+### 🎯 نظام SaaS
+- **متعدد الشركات**: دعم عدة شركات في نظام واحد
+- **عزل البيانات**: فصل بيانات كل شركة
+- **إدارة الاشتراكات**: خطط مختلفة للشركات
+- **نظام الفواتير**: إدارة المدفوعات والاشتراكات
+
+## 🚀 التقنيات المستخدمة
+
+- **Frontend**: Next.js 15, React 19, TypeScript
+- **Styling**: Tailwind CSS 4, Radix UI
+- **Backend**: Next.js API Routes
+- **Database**: Supabase (PostgreSQL)
+- **Authentication**: Supabase Auth
+- **Deployment**: Vercel
+- **Charts**: Chart.js, React Chart.js 2
+- **State Management**: TanStack Query
+- **Icons**: Lucide React
+
+## 📦 التثبيت والإعداد
+
+### المتطلبات الأساسية
+- Node.js 18+
+- npm أو yarn
+- حساب Supabase
+- حساب Vercel (للنشر)
+
+### خطوات التثبيت
+
+1. **استنساخ المشروع**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd aqara-plus-crm
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **تثبيت التبعيات**
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. **إعداد متغيرات البيئة**
+```bash
+cp .env.example .env.local
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+أضف المتغيرات التالية:
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
+```
 
-## Learn More
+4. **إعداد قاعدة البيانات**
+- اذهب إلى Supabase Dashboard
+- أنشئ مشروع جديد
+- انسخ محتوى ملف `database-setup.sql`
+- نفذ الأوامر في SQL Editor
 
-To learn more about Next.js, take a look at the following resources:
+5. **تشغيل المشروع**
+```bash
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+6. **فتح المتصفح**
+```
+http://localhost:3000
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔐 بيانات تسجيل الدخول
 
-## Deploy on Vercel
+**بيانات تجريبية:**
+- البريد الإلكتروني: `admin@aqara.com`
+- كلمة المرور: `admin123`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📱 استخدام النظام
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### تسجيل الدخول
+1. اذهب إلى صفحة تسجيل الدخول
+2. أدخل البريد الإلكتروني وكلمة المرور
+3. اضغط على "تسجيل الدخول"
+
+### إدارة الموظفين
+1. اذهب إلى "الموظفين" من القائمة الجانبية
+2. اضغط على "إضافة موظف جديد"
+3. املأ البيانات المطلوبة
+4. احفظ الموظف الجديد
+
+### تسجيل الحضور والانصراف
+1. اذهب إلى "الحضور والانصراف"
+2. اضغط على "تسجيل الحضور" أو "تسجيل الانصراف"
+3. اسمح بالوصول إلى الموقع الجغرافي
+4. تأكد من أنك ضمن نطاق الحضور (15 متر)
+
+### إدارة العملاء
+1. اذهب إلى "العملاء المحتملين"
+2. اضغط على "إضافة عميل جديد"
+3. املأ بيانات العميل
+4. احفظ العميل الجديد
+
+## 🏗️ هيكل المشروع
+
+```
+src/
+├── app/                    # صفحات التطبيق
+│   ├── api/               # API Routes
+│   ├── login/             # صفحة تسجيل الدخول
+│   ├── employees/         # إدارة الموظفين
+│   ├── attendance/        # الحضور والانصراف
+│   ├── leads/             # إدارة العملاء
+│   ├── properties/        # إدارة العقارات
+│   └── ...
+├── components/            # مكونات React
+│   ├── ui/               # مكونات UI الأساسية
+│   ├── layout/           # مكونات التخطيط
+│   ├── auth/             # مكونات المصادقة
+│   └── ...
+├── hooks/                # React Hooks
+└── lib/                  # مكتبات مساعدة
+```
+
+## 🔧 التخصيص
+
+### إضافة ميزات جديدة
+1. أنشئ API Route جديد في `src/app/api/`
+2. أنشئ صفحة جديدة في `src/app/`
+3. أضف الرابط إلى القائمة الجانبية
+4. أضف الجداول المطلوبة في قاعدة البيانات
+
+### تخصيص التصميم
+- عدل ملف `tailwind.config.js` لتغيير الألوان
+- عدل مكونات UI في `src/components/ui/`
+- أضف خطوط عربية جديدة
+
+## 📈 النشر
+
+### على Vercel
+1. اربط المشروع بـ GitHub
+2. اربط المشروع بـ Vercel
+3. أضف متغيرات البيئة في Vercel
+4. انشر المشروع
+
+### على منصات أخرى
+- **Netlify**: استخدم `npm run build` و `npm run start`
+- **Railway**: اربط المشروع مباشرة
+- **DigitalOcean**: استخدم App Platform
+
+## 🤝 المساهمة
+
+1. Fork المشروع
+2. أنشئ branch جديد (`git checkout -b feature/amazing-feature`)
+3. Commit التغييرات (`git commit -m 'Add amazing feature'`)
+4. Push إلى Branch (`git push origin feature/amazing-feature`)
+5. افتح Pull Request
+
+## 📄 الرخصة
+
+هذا المشروع مرخص تحت رخصة MIT - انظر ملف [LICENSE](LICENSE) للتفاصيل.
+
+## 📞 الدعم
+
+- **البريد الإلكتروني**: support@aqaraplus.com
+- **التوثيق**: [docs.aqaraplus.com](https://docs.aqaraplus.com)
+- **المجتمع**: [community.aqaraplus.com](https://community.aqaraplus.com)
+
+## 🎯 الطريق المستقبلي
+
+### الميزات القادمة
+- [ ] تطبيق موبايل للموظفين
+- [ ] نظام إشعارات متقدم
+- [ ] تكامل مع أنظمة خارجية
+- [ ] الذكاء الاصطناعي للمبيعات
+- [ ] نظام العقود الإلكترونية
+- [ ] بوابة العملاء
+
+### التحسينات المخططة
+- [ ] تحسين الأداء
+- [ ] إضافة اختبارات شاملة
+- [ ] تحسين الأمان
+- [ ] دعم لغات إضافية
+- [ ] تحسين تجربة المستخدم
+
+---
+
+**Aqara Plus CRM** - نظام إدارة علاقات العملاء المتكامل للعقارات 🏢✨

@@ -1,0 +1,214 @@
+src/app/campaigns/page.tsx(75,5): error TS2769: No overload matches this call.
+  Overload 1 of 3, '(options: DefinedInitialDataOptions<CampaignsData, Error, CampaignsData, readonly unknown[]>, queryClient?: QueryClient | undefined): DefinedUseQueryResult<...>', gave the following error.
+    Type '() => Promise<{}>' is not assignable to type 'QueryFunction<CampaignsData, readonly unknown[]>'.
+      Type 'Promise<{}>' is not assignable to type 'CampaignsData | Promise<CampaignsData>'.
+        Type 'Promise<{}>' is not assignable to type 'Promise<CampaignsData>'.
+          Type '{}' is missing the following properties from type 'CampaignsData': campaigns, total
+  Overload 2 of 3, '(options: UndefinedInitialDataOptions<CampaignsData, Error, CampaignsData, readonly unknown[]>, queryClient?: QueryClient | undefined): UseQueryResult<...>', gave the following error.
+    Type '() => Promise<{}>' is not assignable to type 'unique symbol | QueryFunction<CampaignsData, readonly unknown[], never> | undefined'.
+      Type '() => Promise<{}>' is not assignable to type 'QueryFunction<CampaignsData, readonly unknown[], never>'.
+        Type 'Promise<{}>' is not assignable to type 'CampaignsData | Promise<CampaignsData>'.
+          Type 'Promise<{}>' is not assignable to type 'Promise<CampaignsData>'.
+            Type '{}' is missing the following properties from type 'CampaignsData': campaigns, total
+  Overload 3 of 3, '(options: UseQueryOptions<CampaignsData, Error, CampaignsData, readonly unknown[]>, queryClient?: QueryClient | undefined): UseQueryResult<...>', gave the following error.
+    Type '() => Promise<{}>' is not assignable to type 'unique symbol | QueryFunction<CampaignsData, readonly unknown[], never> | undefined'.
+      Type '() => Promise<{}>' is not assignable to type 'QueryFunction<CampaignsData, readonly unknown[], never>'.
+        Type 'Promise<{}>' is not assignable to type 'CampaignsData | Promise<CampaignsData>'.
+          Type 'Promise<{}>' is not assignable to type 'Promise<CampaignsData>'.
+            Type '{}' is missing the following properties from type 'CampaignsData': campaigns, total
+src/app/campaigns/page.tsx(81,5): error TS2769: No overload matches this call.
+  Overload 1 of 3, '(options: DefinedInitialDataOptions<LeadsData, Error, LeadsData, readonly unknown[]>, queryClient?: QueryClient | undefined): DefinedUseQueryResult<...>', gave the following error.
+    Type '() => Promise<{}>' is not assignable to type 'QueryFunction<LeadsData, readonly unknown[]>'.
+      Type 'Promise<{}>' is not assignable to type 'LeadsData | Promise<LeadsData>'.
+        Type 'Promise<{}>' is not assignable to type 'Promise<LeadsData>'.
+          Type '{}' is missing the following properties from type 'LeadsData': leads, total
+  Overload 2 of 3, '(options: UndefinedInitialDataOptions<LeadsData, Error, LeadsData, readonly unknown[]>, queryClient?: QueryClient | undefined): UseQueryResult<...>', gave the following error.
+    Type '() => Promise<{}>' is not assignable to type 'unique symbol | QueryFunction<LeadsData, readonly unknown[], never> | undefined'.
+      Type '() => Promise<{}>' is not assignable to type 'QueryFunction<LeadsData, readonly unknown[], never>'.
+        Type 'Promise<{}>' is not assignable to type 'LeadsData | Promise<LeadsData>'.
+          Type 'Promise<{}>' is not assignable to type 'Promise<LeadsData>'.
+            Type '{}' is missing the following properties from type 'LeadsData': leads, total
+  Overload 3 of 3, '(options: UseQueryOptions<LeadsData, Error, LeadsData, readonly unknown[]>, queryClient?: QueryClient | undefined): UseQueryResult<LeadsData, Error>', gave the following error.
+    Type '() => Promise<{}>' is not assignable to type 'unique symbol | QueryFunction<LeadsData, readonly unknown[], never> | undefined'.
+      Type '() => Promise<{}>' is not assignable to type 'QueryFunction<LeadsData, readonly unknown[], never>'.
+        Type 'Promise<{}>' is not assignable to type 'LeadsData | Promise<LeadsData>'.
+          Type 'Promise<{}>' is not assignable to type 'Promise<LeadsData>'.
+            Type '{}' is missing the following properties from type 'LeadsData': leads, total
+src/app/campaigns/page.tsx(145,34): error TS2339: Property 'leads' does not exist on type 'NonNullable<NoInfer<TQueryFnData>>'.
+src/app/campaigns/page.tsx(146,22): error TS2339: Property 'leads' does not exist on type 'NonNullable<NoInfer<TQueryFnData>>'.
+src/app/campaigns/page.tsx(146,36): error TS7006: Parameter 'lead' implicitly has an 'any' type.
+src/app/campaigns/page.tsx(155,37): error TS2339: Property 'total' does not exist on type 'NonNullable<NoInfer<TQueryFnData>>'.
+src/app/campaigns/page.tsx(155,69): error TS2339: Property 'total' does not exist on type 'NonNullable<NoInfer<TQueryFnData>>'.
+src/app/campaigns/page.tsx(212,32): error TS2339: Property 'campaigns' does not exist on type 'NonNullable<NoInfer<TQueryFnData>>'.
+src/app/campaigns/page.tsx(212,59): error TS2339: Property 'campaigns' does not exist on type 'NonNullable<NoInfer<TQueryFnData>>'.
+src/app/campaigns/page.tsx(213,29): error TS2339: Property 'campaigns' does not exist on type 'NonNullable<NoInfer<TQueryFnData>>'.
+src/app/campaigns/page.tsx(213,44): error TS7006: Parameter 'campaign' implicitly has an 'any' type.
+src/app/campaigns/page.tsx(315,27): error TS2339: Property 'total' does not exist on type 'NonNullable<NoInfer<TQueryFnData>>'.
+src/app/campaigns/page.tsx(315,50): error TS2339: Property 'total' does not exist on type 'NonNullable<NoInfer<TQueryFnData>>'.
+src/app/campaigns/page.tsx(318,84): error TS2339: Property 'total' does not exist on type 'NonNullable<NoInfer<TQueryFnData>>'.
+src/app/campaigns/page.tsx(318,110): error TS2339: Property 'total' does not exist on type 'NonNullable<NoInfer<TQueryFnData>>'.
+src/app/company-locations/page.tsx(129,24): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: MapContainerProps & RefAttributes<LeafletMap>, context?: any): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | ... 4 more ... | undefined', gave the following error.
+    Type '{ children: Element[]; center: [number, number]; zoom: number; style: { width: string; height: string; }; scrollWheelZoom: boolean; dragging: boolean; doubleClickZoom: boolean; zoomControl: boolean; }' is not assignable to type 'IntrinsicAttributes & MapContainerProps & RefAttributes<LeafletMap>'.
+      Property 'center' does not exist on type 'IntrinsicAttributes & MapContainerProps & RefAttributes<LeafletMap>'.
+  Overload 2 of 2, '(props: MapContainerProps & RefAttributes<LeafletMap>): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | ... 4 more ... | undefined', gave the following error.
+    Type '{ children: Element[]; center: [number, number]; zoom: number; style: { width: string; height: string; }; scrollWheelZoom: boolean; dragging: boolean; doubleClickZoom: boolean; zoomControl: boolean; }' is not assignable to type 'IntrinsicAttributes & MapContainerProps & RefAttributes<LeafletMap>'.
+      Property 'center' does not exist on type 'IntrinsicAttributes & MapContainerProps & RefAttributes<LeafletMap>'.
+src/app/company-locations/page.tsx(171,24): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: MapContainerProps & RefAttributes<LeafletMap>, context?: any): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | ... 4 more ... | undefined', gave the following error.
+    Type '{ children: Element[]; center: [number, number]; zoom: number; style: { width: string; height: string; }; scrollWheelZoom: boolean; }' is not assignable to type 'IntrinsicAttributes & MapContainerProps & RefAttributes<LeafletMap>'.
+      Property 'center' does not exist on type 'IntrinsicAttributes & MapContainerProps & RefAttributes<LeafletMap>'.
+  Overload 2 of 2, '(props: MapContainerProps & RefAttributes<LeafletMap>): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | ... 4 more ... | undefined', gave the following error.
+    Type '{ children: Element[]; center: [number, number]; zoom: number; style: { width: string; height: string; }; scrollWheelZoom: boolean; }' is not assignable to type 'IntrinsicAttributes & MapContainerProps & RefAttributes<LeafletMap>'.
+      Property 'center' does not exist on type 'IntrinsicAttributes & MapContainerProps & RefAttributes<LeafletMap>'.
+src/app/projects/page.tsx(74,7): error TS2322: Type 'string | number' is not assignable to type 'string'.
+  Type 'number' is not assignable to type 'string'.
+src/app/projects/page.tsx(75,7): error TS2322: Type 'string | number' is not assignable to type 'string'.
+  Type 'number' is not assignable to type 'string'.
+src/app/projects/page.tsx(76,7): error TS2322: Type 'string | number' is not assignable to type 'string'.
+  Type 'number' is not assignable to type 'string'.
+src/app/reports/page.tsx(30,16): error TS2339: Property 'leads' does not exist on type '{}'.
+src/app/reports/page.tsx(31,25): error TS2339: Property 'leads' does not exist on type '{}'.
+src/app/reports/page.tsx(31,49): error TS2339: Property 'leads' does not exist on type '{}'.
+src/app/reports/page.tsx(36,16): error TS2339: Property 'tasks' does not exist on type '{}'.
+src/app/reports/page.tsx(37,25): error TS2339: Property 'tasks' does not exist on type '{}'.
+src/app/reports/page.tsx(37,49): error TS2339: Property 'tasks' does not exist on type '{}'.
+src/app/reports/page.tsx(94,41): error TS2339: Property 'leads' does not exist on type '{}'.
+src/app/reports/page.tsx(97,42): error TS2339: Property 'leads' does not exist on type '{}'.
+src/app/reports/page.tsx(113,41): error TS2339: Property 'properties' does not exist on type '{}'.
+src/app/reports/page.tsx(116,44): error TS2339: Property 'properties' does not exist on type '{}'.
+src/app/reports/page.tsx(135,41): error TS2339: Property 'leads' does not exist on type '{}'.
+src/app/reports/page.tsx(154,41): error TS2339: Property 'tasks' does not exist on type '{}'.
+src/app/reports/page.tsx(177,20): error TS2339: Property 'leads' does not exist on type '{}'.
+src/app/reports/page.tsx(179,39): error TS2339: Property 'leads' does not exist on type '{}'.
+src/app/reports/page.tsx(193,54): error TS2339: Property 'leads' does not exist on type '{}'.
+src/app/reports/page.tsx(216,20): error TS2339: Property 'properties' does not exist on type '{}'.
+src/app/reports/page.tsx(218,39): error TS2339: Property 'properties' does not exist on type '{}'.
+src/app/reports/page.tsx(231,54): error TS2339: Property 'properties' does not exist on type '{}'.
+src/app/reports/page.tsx(254,20): error TS2339: Property 'leads' does not exist on type '{}'.
+src/app/reports/page.tsx(256,39): error TS2339: Property 'leads' does not exist on type '{}'.
+src/app/reports/page.tsx(262,54): error TS2339: Property 'leads' does not exist on type '{}'.
+src/app/reports/page.tsx(285,20): error TS2339: Property 'properties' does not exist on type '{}'.
+src/app/reports/page.tsx(287,39): error TS2339: Property 'properties' does not exist on type '{}'.
+src/app/reports/page.tsx(293,54): error TS2339: Property 'properties' does not exist on type '{}'.
+src/app/reports/page.tsx(317,37): error TS2339: Property 'appointments' does not exist on type '{}'.
+src/app/reports/page.tsx(323,37): error TS2339: Property 'campaigns' does not exist on type '{}'.
+src/app/reports/page.tsx(329,37): error TS2339: Property 'projects' does not exist on type '{}'.
+src/components/dashboard/recent-activity.tsx(63,38): error TS2339: Property 'length' does not exist on type '{}'.
+src/components/dashboard/recent-activity.tsx(65,25): error TS2339: Property 'map' does not exist on type '{}'.
+src/components/dashboard/recent-leads.tsx(39,75): error TS7053: Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ جديد: string; متواصل: string; مغلق: string; }'.
+  No index signature with a parameter of type 'string' was found on type '{ جديد: string; متواصل: string; مغلق: string; }'.
+src/components/dashboard/recent-tasks.tsx(38,75): error TS7053: Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ مفتوحة: string; مكتملة: string; }'.
+  No index signature with a parameter of type 'string' was found on type '{ مفتوحة: string; مكتملة: string; }'.
+src/components/dashboard/today-tasks.tsx(6,28): error TS2307: Cannot find module '@/lib/queryClient' or its corresponding type declarations.
+src/components/dashboard/today-tasks.tsx(7,26): error TS2307: Cannot find module '@/hooks/use-toast' or its corresponding type declarations.
+src/components/dashboard/today-tasks.tsx(82,24): error TS2339: Property 'tasks' does not exist on type '{}'.
+src/components/dashboard/today-tasks.tsx(82,43): error TS2339: Property 'tasks' does not exist on type '{}'.
+src/components/dashboard/today-tasks.tsx(84,24): error TS2339: Property 'tasks' does not exist on type '{}'.
+src/components/hooks/use-toast.ts(3,15): error TS7031: Binding element 'title' implicitly has an 'any' type.
+src/components/hooks/use-toast.ts(3,22): error TS7031: Binding element 'description' implicitly has an 'any' type.
+src/components/hooks/use-toast.ts(3,35): error TS7031: Binding element 'variant' implicitly has an 'any' type.
+src/components/landing-page/AboutSection.tsx(48,23): error TS2322: Type '{ hidden: { opacity: number; y: number; }; show: { opacity: number; y: number; transition: { type: string; stiffness: number; }; }; }' is not assignable to type 'Variants'.
+  Property 'show' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ type: string; stiffness: number; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ type: string; stiffness: number; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ type: string; stiffness: number; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'type' are incompatible.
+                    Type 'string' is not assignable to type 'AnimationGeneratorType | undefined'.
+src/components/landing-page/AboutSection.tsx(49,23): error TS2322: Type '{ hidden: { opacity: number; y: number; }; show: { opacity: number; y: number; transition: { type: string; stiffness: number; }; }; }' is not assignable to type 'Variants'.
+  Property 'show' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ type: string; stiffness: number; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ type: string; stiffness: number; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ type: string; stiffness: number; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'type' are incompatible.
+                    Type 'string' is not assignable to type 'AnimationGeneratorType | undefined'.
+src/components/landing-page/AboutSection.tsx(50,23): error TS2322: Type '{ hidden: { opacity: number; y: number; }; show: { opacity: number; y: number; transition: { type: string; stiffness: number; }; }; }' is not assignable to type 'Variants'.
+  Property 'show' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ type: string; stiffness: number; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ type: string; stiffness: number; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ type: string; stiffness: number; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'type' are incompatible.
+                    Type 'string' is not assignable to type 'AnimationGeneratorType | undefined'.
+src/components/landing-page/AboutSection.tsx(51,23): error TS2322: Type '{ hidden: { opacity: number; y: number; }; show: { opacity: number; y: number; transition: { type: string; stiffness: number; }; }; }' is not assignable to type 'Variants'.
+  Property 'show' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ type: string; stiffness: number; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ type: string; stiffness: number; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ type: string; stiffness: number; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'type' are incompatible.
+                    Type 'string' is not assignable to type 'AnimationGeneratorType | undefined'.
+src/components/landing-page/AboutSection.tsx(52,23): error TS2322: Type '{ hidden: { opacity: number; y: number; }; show: { opacity: number; y: number; transition: { type: string; stiffness: number; }; }; }' is not assignable to type 'Variants'.
+  Property 'show' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ type: string; stiffness: number; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ type: string; stiffness: number; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ type: string; stiffness: number; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'type' are incompatible.
+                    Type 'string' is not assignable to type 'AnimationGeneratorType | undefined'.
+src/components/landing-page/FeaturesSection.tsx(39,21): error TS2322: Type '{ hidden: { opacity: number; y: number; }; show: { opacity: number; y: number; transition: { type: string; stiffness: number; }; }; }' is not assignable to type 'Variants'.
+  Property 'show' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ type: string; stiffness: number; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ type: string; stiffness: number; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ type: string; stiffness: number; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'type' are incompatible.
+                    Type 'string' is not assignable to type 'AnimationGeneratorType | undefined'.
+src/components/landing-page/FeaturesSection.tsx(40,21): error TS2322: Type '{ hidden: { opacity: number; y: number; }; show: { opacity: number; y: number; transition: { type: string; stiffness: number; }; }; }' is not assignable to type 'Variants'.
+  Property 'show' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ type: string; stiffness: number; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ type: string; stiffness: number; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ type: string; stiffness: number; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'type' are incompatible.
+                    Type 'string' is not assignable to type 'AnimationGeneratorType | undefined'.
+src/components/landing-page/FeaturesSection.tsx(41,21): error TS2322: Type '{ hidden: { opacity: number; y: number; }; show: { opacity: number; y: number; transition: { type: string; stiffness: number; }; }; }' is not assignable to type 'Variants'.
+  Property 'show' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ type: string; stiffness: number; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ type: string; stiffness: number; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ type: string; stiffness: number; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'type' are incompatible.
+                    Type 'string' is not assignable to type 'AnimationGeneratorType | undefined'.
+src/components/landing-page/FeaturesSection.tsx(42,21): error TS2322: Type '{ hidden: { opacity: number; y: number; }; show: { opacity: number; y: number; transition: { type: string; stiffness: number; }; }; }' is not assignable to type 'Variants'.
+  Property 'show' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ type: string; stiffness: number; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ type: string; stiffness: number; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ type: string; stiffness: number; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'type' are incompatible.
+                    Type 'string' is not assignable to type 'AnimationGeneratorType | undefined'.
+src/components/modals/new-campaign-modal.tsx(49,13): error TS2345: Argument of type '{ title: string; description: string; }' is not assignable to parameter of type '{ title: any; description: any; variant: any; }'.
+  Property 'variant' is missing in type '{ title: string; description: string; }' but required in type '{ title: any; description: any; variant: any; }'.
+src/components/ui/skeleton.tsx(1,20): error TS2307: Cannot find module '@/lib/utils' or its corresponding type declarations.
+useAuth.ts(5,37): error TS2304: Cannot find name 'supabase'.
+useAuth.ts(14,9): error TS2304: Cannot find name 'setUser'.

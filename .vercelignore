@@ -1,0 +1,32 @@
+# Documentation
+README.md
+README_AR.md
+SETUP.md
+
+# Logs
+*_log.txt
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Database
+database-setup-merged.sql
+
+# Editor & System
+.vscode
+.idea
+.DS_Store
+*.pem
+
+# Local Config
+.env*
+tsconfig.tsbuildinfo
+
+# Build Artifacts
+.next
+out
+build
+coverage
+
+# Dependencies
+node_modules
