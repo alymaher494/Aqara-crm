@@ -1,50 +1,45 @@
-"use client";
+import Link from "next/link"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Badge } from "@/components/ui/badge"
 
-const leads = [
-  { name: "أحمد علي", status: "جديد", date: "2024-06-01", owner: "محمد سمير" },
-  { name: "سارة محمد", status: "متواصل", date: "2024-05-30", owner: "أحمد فؤاد" },
-  { name: "محمود حسن", status: "مغلق", date: "2024-05-28", owner: "منى عادل" },
-  { name: "ليلى إبراهيم", status: "جديد", date: "2024-05-27", owner: "محمد سمير" },
-  { name: "يوسف خالد", status: "متواصل", date: "2024-05-25", owner: "أحمد فؤاد" },
-];
+interface RecentLeadsProps {
+    leads: {
+        id: string
+        name: string
+        phone: string
+        status: string
+        created_at: string
+    }[]
+}
 
-const statusColor = {
-  "جديد": "bg-primary text-white",
-  "متواصل": "bg-accent text-text",
-  "مغلق": "bg-secondary text-white"
-};
+export function RecentLeads({ leads }: RecentLeadsProps) {
+    if (leads.length === 0) {
+        return <div className="text-sm text-muted-foreground">No recent leads found.</div>
+    }
 
-export default function RecentLeads() {
-  return (
-    <div className="bg-white rounded-xl shadow p-4 border border-secondary/10">
-      <div className="flex justify-between items-center mb-3">
-        <h3 className="text-lg font-bold text-text">آخر العملاء المضافين</h3>
-        <a href="/leads" className="text-sm text-primary hover:underline">عرض الكل</a>
-        </div>
-      <div className="overflow-x-auto">
-        <table className="min-w-full text-sm rtl text-right">
-          <thead>
-            <tr className="bg-background">
-              <th className="py-2 px-3 font-bold text-text">الاسم</th>
-              <th className="py-2 px-3 font-bold text-text">الحالة</th>
-              <th className="py-2 px-3 font-bold text-text">تاريخ الإضافة</th>
-              <th className="py-2 px-3 font-bold text-text">الموظف المسؤول</th>
-            </tr>
-          </thead>
-          <tbody>
-            {leads.map((lead, idx) => (
-              <tr key={idx} className="border-b last:border-b-0">
-                <td className="py-2 px-3">{lead.name}</td>
-                <td className="py-2 px-3">
-                  <span className={`px-2 py-1 rounded text-xs font-bold ${statusColor[lead.status]}`}>{lead.status}</span>
-                </td>
-                <td className="py-2 px-3">{lead.date}</td>
-                <td className="py-2 px-3">{lead.owner}</td>
-              </tr>
+    return (
+        <div className="space-y-8">
+            {leads.map((lead) => (
+                <Link
+                    href={`/crm/leads/${lead.id}`}
+                    key={lead.id}
+                    className="flex items-center group hover:bg-muted/50 p-2 rounded-lg transition-colors -mx-2"
+                >
+                    <Avatar className="h-9 w-9">
+                        <AvatarImage src="/avatars/01.png" alt="Avatar" />
+                        <AvatarFallback>{lead.name.substring(0, 2).toUpperCase()}</AvatarFallback>
+                    </Avatar>
+                    <div className="ml-4 space-y-1">
+                        <p className="text-sm font-medium leading-none group-hover:text-primary transition-colors">{lead.name}</p>
+                        <p className="text-xs text-muted-foreground">{lead.phone}</p>
+                    </div>
+                    <div className="ml-auto font-medium">
+                        <Badge variant={lead.status === 'new' ? 'default' : 'secondary'} className="capitalize">
+                            {lead.status}
+                        </Badge>
+                    </div>
+                </Link>
             ))}
-          </tbody>
-        </table>
-                </div>
-              </div>
-  );
-} 
+        </div>
+    )
+}

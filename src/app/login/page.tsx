@@ -1,164 +1,117 @@
-'use client';
+'use client'
 
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import { Eye, EyeOff, Building2, AlertCircle } from 'lucide-react';
-import { useAuth } from '@/components/hooks/useAuth';
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import * as z from 'zod'
+import { toast } from 'sonner'
+import { login } from './actions'
 
-// تعريف مخطط التحقق (Validation Schema)
-const loginSchema = z.object({
-  email: z.string().email("البريد الإلكتروني غير صحيح"),
-  password: z.string().min(6, "كلمة المرور يجب أن تكون 6 أحرف على الأقل"),
-});
+import { Button } from '@/components/ui/button'
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from '@/components/ui/card'
+import {
+    Form,
+    FormControl,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage,
+} from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
 
-type LoginFormValues = z.infer<typeof loginSchema>;
+const formSchema = z.object({
+    email: z.string().email({
+        message: 'Please enter a valid email address.',
+    }),
+    password: z.string().min(6, {
+        message: 'Password must be at least 6 characters.',
+    }),
+})
 
 export default function LoginPage() {
-  const [showPassword, setShowPassword] = useState(false);
-  const [serverError, setServerError] = useState('');
-  const router = useRouter();
-  const { login, isAuthenticated, user } = useAuth();
+    const [isLoading, setIsLoading] = useState(false)
 
-  // إعداد النموذج مع react-hook-form
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-  } = useForm<LoginFormValues>({
-    resolver: zodResolver(loginSchema),
-  });
+    const form = useForm<z.infer<typeof formSchema>>({
+        resolver: zodResolver(formSchema),
+        defaultValues: {
+            email: '',
+            password: '',
+        },
+    })
 
-  useEffect(() => {
-    if (isAuthenticated()) {
-      router.push('/dashboard');
+    async function onSubmit(values: z.infer<typeof formSchema>) {
+        setIsLoading(true)
+        const formData = new FormData()
+        formData.append('email', values.email)
+        formData.append('password', values.password)
+
+        const error = await login(formData)
+
+        if (error) {
+            toast.error(error)
+            setIsLoading(false)
+        }
     }
-  }, [isAuthenticated, router, user]);
 
-  const onSubmit = async (data: LoginFormValues) => {
-    setServerError('');
-    console.time('LoginProcess');
-    try {
-      const result = await login(data.email, data.password);
-      console.timeEnd('LoginProcess');
-
-      if (result.success) {
-        console.log('Login success, redirecting...');
-        router.push('/dashboard');
-      } else {
-        setServerError(result.error || 'حدث خطأ أثناء تسجيل الدخول');
-      }
-    } catch (error) {
-      console.error('Login error:', error);
-      setServerError('حدث خطأ غير متوقع');
-    }
-  };
-
-  return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4 font-cairo">
-      <div className="w-full max-w-md">
-        {/* Header - Minimal */}
-        <div className="text-center mb-8">
-          <div className="flex items-center justify-center space-x-3 space-x-reverse mb-6">
-            <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center shadow-lg">
-              <Building2 className="w-6 h-6 text-primary-foreground" />
-            </div>
-            <div>
-              <h1 className="text-2xl font-bold text-heading">Aqara Plus CRM</h1>
-              <p className="text-sm text-muted-foreground">نظام إدارة العقارات المتكامل</p>
-            </div>
-          </div>
+    return (
+        <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4">
+            <Card className="w-full max-w-md">
+                <CardHeader className="space-y-1">
+                    <CardTitle className="text-2xl font-bold text-center">
+                        Aqara Plus CRM
+                    </CardTitle>
+                    <CardDescription className="text-center">
+                        Enter your email and password to access your account
+                    </CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <Form {...form}>
+                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                            <FormField
+                                control={form.control}
+                                name="email"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Email</FormLabel>
+                                        <FormControl>
+                                            <Input placeholder="name@example.com" {...field} />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="password"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Password</FormLabel>
+                                        <FormControl>
+                                            <Input type="password" placeholder="******" {...field} />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            <Button type="submit" className="w-full" disabled={isLoading}>
+                                {isLoading ? 'Signing in...' : 'Sign In'}
+                            </Button>
+                        </form>
+                    </Form>
+                </CardContent>
+                <CardFooter className="flex justify-center">
+                    <p className="text-sm text-muted-foreground">
+                        Don&apos;t have an account? Contact your administrator.
+                    </p>
+                </CardFooter>
+            </Card>
         </div>
-
-        {/* Login Form - Minimal & Clean */}
-        <div className="card p-8 shadow-xl border border-border/50 bg-card rounded-2xl">
-          <div className="space-y-6">
-            <div className="text-center">
-              <h2 className="text-xl font-semibold text-heading">تسجيل الدخول</h2>
-              <p className="text-sm text-muted-foreground mt-2">أدخل بياناتك للوصول إلى النظام</p>
-            </div>
-
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-              {serverError && (
-                <div className="bg-destructive/10 border border-destructive/20 rounded-lg p-4 flex items-center gap-2 text-destructive">
-                  <AlertCircle className="w-5 h-5" />
-                  <p className="text-sm font-medium">{serverError}</p>
-                </div>
-              )}
-
-              <div className="space-y-2">
-                <label htmlFor="email" className="block text-sm font-medium text-heading">
-                  البريد الإلكتروني
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  {...register("email")}
-                  className={`input w-full ${errors.email ? 'border-destructive focus:ring-destructive' : ''}`}
-                  placeholder="name@company.com"
-                  dir="ltr"
-                />
-                {errors.email && (
-                  <p className="text-xs text-destructive mt-1">{errors.email.message}</p>
-                )}
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="password" className="block text-sm font-medium text-heading">
-                  كلمة المرور
-                </label>
-                <div className="relative">
-                  <input
-                    id="password"
-                    type={showPassword ? 'text' : 'password'}
-                    {...register("password")}
-                    className={`input w-full pr-12 ${errors.password ? 'border-destructive focus:ring-destructive' : ''}`}
-                    placeholder="••••••••"
-                    dir="ltr"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-                  </button>
-                </div>
-                {errors.password && (
-                  <p className="text-xs text-destructive mt-1">{errors.password.message}</p>
-                )}
-              </div>
-
-              <div className="flex items-center justify-between">
-                <label className="flex items-center cursor-pointer">
-                  <input
-                    type="checkbox"
-                    className="w-4 h-4 text-primary border-border rounded focus:ring-primary"
-                  />
-                  <span className="mr-2 text-sm text-muted-foreground">تذكرني</span>
-                </label>
-                <a href="#" className="text-sm text-primary hover:text-primary/80 transition-colors">
-                  نسيت كلمة المرور؟
-                </a>
-              </div>
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="btn-primary w-full py-2.5 rounded-lg font-bold shadow-md hover:shadow-lg transition-all disabled:opacity-70 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? 'جاري التحقق...' : 'تسجيل الدخول'}
-              </button>
-            </form>
-          </div>
-        </div>
-
-        <div className="mt-8 text-center text-sm text-muted-foreground">
-          <p>© 2025 عقارة بلس. جميع الحقوق محفوظة.</p>
-        </div>
-      </div>
-    </div>
-  );
+    )
 }

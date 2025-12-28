@@ -1,31 +1,45 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans_Arabic } from "next/font/google";
+import { Cairo } from "next/font/google";
 import "./globals.css";
-import AppShell from "@/components/layout/app-shell";
-import { Toaster } from 'sonner';
+import { Toaster } from "@/components/ui/sonner";
+import { cn } from "@/lib/utils";
 
-const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
-  subsets: ["arabic"],
-  weight: ["100", "200", "300", "400", "500", "600", "700"],
-  variable: "--font-ibm-plex-sans-arabic",
-});
+const cairo = Cairo({ subsets: ["arabic", "latin"], weight: ["300", "400", "500", "700"] });
 
 export const metadata: Metadata = {
-  title: "Aqara Plus CRM - نظام إدارة علاقات العملاء للعقارات",
-  description: "نظام متكامل لإدارة العملاء والعقارات والمبيعات",
+    title: "Aqara Plus CRM",
+    description: "Advanced Real Estate CRM",
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="ar" dir="rtl">
-      <body className={ibmPlexSansArabic.className}>
-        <AppShell>{children}</AppShell>
-        <Toaster position="top-center" richColors />
-      </body>
-    </html>
-  );
+    return (
+        <html lang="en" suppressHydrationWarning>
+            <head>
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                            (function() {
+                                try {
+                                    const lang = localStorage.getItem('app-lang');
+                                    if (lang === 'ar') {
+                                        document.documentElement.dir = 'rtl';
+                                    } else {
+                                        document.documentElement.dir = 'ltr';
+                                    }
+                                } catch (e) {}
+                            })();
+                        `,
+                    }}
+                />
+            </head>
+            <body className={cn("min-h-screen bg-slate-50 font-sans antialiased", cairo.className)}>
+                {children}
+                <Toaster />
+            </body>
+        </html>
+    );
 }
