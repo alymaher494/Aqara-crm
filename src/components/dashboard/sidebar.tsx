@@ -17,6 +17,7 @@ import {
     LogOut,
     Smartphone,
     Calendar,
+    BarChart3,
 } from 'lucide-react'
 import { signOut } from '@/app/(dashboard)/actions'
 import { Button } from '@/components/ui/button'
@@ -39,6 +40,7 @@ const navSections = [
             { key: 'leads', icon: Users, href: '/crm/leads' },
             { key: 'schedule', icon: Calendar, href: '/crm/schedule' },
             { key: 'pipeline', icon: Kanban, href: '/crm/pipeline' },
+            { key: 'reports', icon: BarChart3, href: '/crm/reports' },
             { key: 'inventory', icon: Building2, href: '/crm/inventory' },
             { key: 'developers', icon: Building2, href: '/crm/developers' },
             { key: 'campaigns', icon: Megaphone, href: '/crm/campaigns' },
@@ -88,6 +90,7 @@ export function Sidebar({ isSuperAdmin = false }: SidebarProps) {
         logout: t.common.logout,
         whatsapp: 'WhatsApp Integrations',
         schedule: 'Schedule',
+        reports: 'Analytics Hub',
     }
 
     const isActive = (href: string) => {
