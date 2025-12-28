@@ -42,7 +42,7 @@ interface Organization {
     name: string
     subscription_plan?: string
     max_users?: number
-    expiration_date?: string
+    expiry_date?: string
     created_at: string
 }
 

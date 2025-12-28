@@ -1,5 +1,5 @@
 import { getSystemStats, getAllOrganizations } from "@/lib/admin-actions"
-import { OrgTable } from "@/components/admin/org-table"
+import { AdminDashboard } from "@/components/admin/admin-dashboard"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Building2, Users, CreditCard, Activity, Globe, Zap, Megaphone, Smartphone } from "lucide-react"
 
@@ -96,9 +96,9 @@ export default async function AdminPage() {
             <div className="space-y-6">
                 <div className="flex items-center gap-4">
                     <div className="h-8 w-1 bg-amber-500 rounded-full" />
-                    <h3 className="text-xl font-bold text-white tracking-tight">Active Tenants</h3>
+                    <h3 className="text-xl font-bold text-white tracking-tight">System Tenants</h3>
                 </div>
-                <OrgTable organizations={organizations || []} />
+                <AdminDashboard initialTenants={organizations || []} />
             </div>
         </div>
     )
