@@ -16,14 +16,14 @@ export default async function DashboardLayout({
         redirect('/login')
     }
 
-    // 2. Check Admin Status
-    const { data: adminRecord } = await supabase
-        .from('app_admins')
-        .select('id')
-        .eq('user_id', user.id)
+    // 2. Check Admin Status from Profile
+    const { data: profile } = await supabase
+        .from('profiles')
+        .select('is_super_admin')
+        .eq('id', user.id)
         .single()
 
-    const isSuperAdmin = !!adminRecord
+    const isSuperAdmin = !!profile?.is_super_admin
 
     return (
         <div className="h-screen flex bg-slate-50/50">

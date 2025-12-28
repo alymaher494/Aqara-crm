@@ -18,9 +18,13 @@ import { useTranslation } from '@/hooks/use-translation'
 
 interface UserNavProps {
     isSuperAdmin?: boolean
+    userProfile?: {
+        name: string
+        email: string
+    }
 }
 
-export function UserNav({ isSuperAdmin = false }: UserNavProps) {
+export function UserNav({ isSuperAdmin = false, userProfile }: UserNavProps) {
     const { toggleLanguage, t, lang, mounted } = useTranslation()
 
     // Prevent hydration mismatch
@@ -59,9 +63,9 @@ export function UserNav({ isSuperAdmin = false }: UserNavProps) {
                 <DropdownMenuContent className="w-56" align="end" forceMount>
                     <DropdownMenuLabel className="font-normal">
                         <div className="flex flex-col space-y-1 text-start">
-                            <p className="text-sm font-medium leading-none">{t.common.welcome}</p>
+                            <p className="text-sm font-medium leading-none">{userProfile?.name || t.common.welcome}</p>
                             <p className="text-xs leading-none text-muted-foreground">
-                                user@example.com
+                                {userProfile?.email || 'user@example.com'}
                             </p>
                         </div>
                     </DropdownMenuLabel>

@@ -14,9 +14,13 @@ import { NotificationBell } from '@/components/dashboard/notification-bell'
 
 interface HeaderClientProps {
     isSuperAdmin?: boolean
+    userProfile?: {
+        name: string
+        email: string
+    }
 }
 
-export function HeaderClient({ isSuperAdmin = false }: HeaderClientProps) {
+export function HeaderClient({ isSuperAdmin = false, userProfile }: HeaderClientProps) {
     const pathname = usePathname()
     const { t, mounted, lang } = useTranslation()
 
@@ -130,7 +134,7 @@ export function HeaderClient({ isSuperAdmin = false }: HeaderClientProps) {
                 </Button>
 
                 {/* User Navigation */}
-                <UserNav isSuperAdmin={isSuperAdmin} />
+                <UserNav isSuperAdmin={isSuperAdmin} userProfile={userProfile} />
             </div>
         </header>
     )
