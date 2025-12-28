@@ -36,6 +36,7 @@ import { Lead } from "@/types"
 const taskSchema = z.object({
     title: z.string().min(1, 'Title is required'),
     due_date: z.string().min(1, 'Date is required'),
+    type: z.enum(['meeting', 'call', 'deadline', 'viewing']).default('call'),
     lead_id: z.string().optional(),
 })
 
@@ -52,6 +53,7 @@ export function AddTaskDialog({ leads = [] }: AddTaskDialogProps) {
         defaultValues: {
             title: '',
             due_date: '',
+            type: 'call',
             lead_id: 'none',
         },
     })
@@ -61,6 +63,7 @@ export function AddTaskDialog({ leads = [] }: AddTaskDialogProps) {
         const formData = new FormData()
         formData.append('title', values.title)
         formData.append('due_date', values.due_date)
+        formData.append('type', values.type)
         if (values.lead_id) formData.append('lead_id', values.lead_id)
 
         try {
@@ -114,6 +117,29 @@ export function AddTaskDialog({ leads = [] }: AddTaskDialogProps) {
                                     <FormControl>
                                         <Input type="datetime-local" {...field} />
                                     </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="type"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Task Type</FormLabel>
+                                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                        <FormControl>
+                                            <SelectTrigger>
+                                                <SelectValue placeholder="Select type" />
+                                            </SelectTrigger>
+                                        </FormControl>
+                                        <SelectContent>
+                                            <SelectItem value="call">Call</SelectItem>
+                                            <SelectItem value="meeting">Meeting</SelectItem>
+                                            <SelectItem value="viewing">Viewing</SelectItem>
+                                            <SelectItem value="deadline">Deadline</SelectItem>
+                                        </SelectContent>
+                                    </Select>
                                     <FormMessage />
                                 </FormItem>
                             )}

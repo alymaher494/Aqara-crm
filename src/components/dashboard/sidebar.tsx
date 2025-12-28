@@ -16,6 +16,7 @@ import {
     ShieldCheck,
     LogOut,
     Smartphone,
+    Calendar,
 } from 'lucide-react'
 import { signOut } from '@/app/(dashboard)/actions'
 import { Button } from '@/components/ui/button'
@@ -36,6 +37,7 @@ const navSections = [
         label: 'CRM',
         items: [
             { key: 'leads', icon: Users, href: '/crm/leads' },
+            { key: 'schedule', icon: Calendar, href: '/crm/schedule' },
             { key: 'pipeline', icon: Kanban, href: '/crm/pipeline' },
             { key: 'inventory', icon: Building2, href: '/crm/inventory' },
             { key: 'developers', icon: Building2, href: '/crm/developers' },
@@ -85,6 +87,7 @@ export function Sidebar({ isSuperAdmin = false }: SidebarProps) {
         admin: t.sidebar.admin,
         logout: t.common.logout,
         whatsapp: 'WhatsApp Integrations',
+        schedule: 'Schedule',
     }
 
     const isActive = (href: string) => {
