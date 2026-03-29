@@ -63,13 +63,13 @@ export function HeaderClient({ isSuperAdmin = false, userProfile }: HeaderClient
     }
 
     return (
-        <header className="sticky top-0 z-40 h-16 bg-white border-b border-slate-200 flex items-center justify-between px-4 md:px-6 gap-4">
+        <header className="sticky top-0 z-40 h-16 bg-white/90 backdrop-blur-xl border-b border-border/60 flex items-center justify-between px-4 md:px-6 gap-4 shadow-sm">
             {/* Left: Mobile Menu + Breadcrumbs */}
             <div className="flex items-center gap-3">
                 {/* Mobile Menu Trigger */}
                 <Sheet>
                     <SheetTrigger asChild>
-                        <Button variant="ghost" size="icon" className="md:hidden">
+                        <Button variant="ghost" size="icon" className="md:hidden hover:bg-slate-100/80">
                             <Menu className="h-5 w-5" />
                             <span className="sr-only">Open menu</span>
                         </Button>
@@ -80,7 +80,7 @@ export function HeaderClient({ isSuperAdmin = false, userProfile }: HeaderClient
                 </Sheet>
 
                 {/* Mobile Brand */}
-                <Link href="/crm" className="md:hidden font-bold text-lg">
+                <Link href="/crm" className="md:hidden font-bold text-lg bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                     Aqara+
                 </Link>
 
@@ -92,11 +92,11 @@ export function HeaderClient({ isSuperAdmin = false, userProfile }: HeaderClient
                                 <ChevronRight className={cn("h-4 w-4 mx-2 text-slate-400", lang === 'ar' && "rotate-180")} />
                             )}
                             {index === breadcrumbs.length - 1 ? (
-                                <span className="font-medium text-slate-900">{crumb.label}</span>
+                                <span className="font-bold text-slate-900">{crumb.label}</span>
                             ) : (
                                 <Link
                                     href={crumb.href}
-                                    className="text-slate-500 hover:text-slate-700 transition-colors"
+                                    className="text-slate-500 hover:text-slate-700 transition-colors font-medium"
                                 >
                                     {crumb.label}
                                 </Link>
@@ -108,12 +108,12 @@ export function HeaderClient({ isSuperAdmin = false, userProfile }: HeaderClient
 
             {/* Center: Global Search (Hidden on Mobile) */}
             <div className="hidden md:flex flex-1 max-w-xl mx-4">
-                <div className="relative w-full">
-                    <Search className="absolute start-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+                <div className="relative w-full group">
+                    <Search className="absolute start-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 group-focus-within:text-primary transition-colors" />
                     <Input
                         type="search"
                         placeholder={t.common.search}
-                        className="ps-10 bg-slate-50 border-slate-200 rounded-xl h-10 focus:bg-white transition-colors"
+                        className="ps-10 bg-slate-50/80 border-border/60 rounded-xl h-11 focus:bg-white transition-all duration-300 hover:border-primary/30"
                     />
                 </div>
             </div>
@@ -121,7 +121,7 @@ export function HeaderClient({ isSuperAdmin = false, userProfile }: HeaderClient
             {/* Right: Actions */}
             <div className="flex items-center gap-1 md:gap-2">
                 {/* Mobile Search Button */}
-                <Button variant="ghost" size="icon" className="md:hidden">
+                <Button variant="ghost" size="icon" className="md:hidden hover:bg-slate-100/80">
                     <Search className="h-5 w-5 text-slate-600" />
                 </Button>
 
@@ -129,7 +129,7 @@ export function HeaderClient({ isSuperAdmin = false, userProfile }: HeaderClient
                 <NotificationBell />
 
                 {/* Theme Toggle (placeholder) */}
-                <Button variant="ghost" size="icon" className="hidden md:flex">
+                <Button variant="ghost" size="icon" className="hidden md:flex hover:bg-slate-100/80">
                     <Sun className="h-5 w-5 text-slate-600" />
                 </Button>
 

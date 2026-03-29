@@ -97,30 +97,30 @@ export function ActivityFeed({ initialLogs }: { initialLogs: ActivityLog[] }) {
     }, [])
 
     return (
-        <Card className="border-none shadow-sm ring-1 ring-slate-200 overflow-hidden h-full bg-white">
-            <CardHeader className="bg-slate-50/50 border-b px-6 py-4">
+        <Card className="border-none shadow-lg ring-1 ring-slate-200 overflow-hidden h-full bg-white/90 backdrop-blur-xl">
+            <CardHeader className="bg-gradient-to-r from-slate-50/80 to-transparent border-b px-6 py-4">
                 <div className="flex items-center justify-between">
                     <CardTitle className="text-sm font-bold flex items-center gap-2 text-slate-700">
                         <RefreshCcw className={`h-4 w-4 text-primary ${loading ? 'animate-spin' : ''}`} />
                         Live Activity Feed
                     </CardTitle>
-                    <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200 text-[10px] uppercase font-bold px-2 py-0">
+                    <Badge variant="outline" className="bg-gradient-to-r from-green-50 to-emerald-50 text-green-700 border-green-200 text-[10px] uppercase font-bold px-2 py-0 shadow-sm">
                         Live
                     </Badge>
                 </div>
             </CardHeader>
             <CardContent className="p-0">
-                <div className="divide-y">
+                <div className="divide-y divide-slate-100/80">
                     {logs.length === 0 ? (
                         <div className="p-8 text-center text-muted-foreground text-sm italic">
                             No recent activity
                         </div>
                     ) : (
                         logs.map((log) => (
-                            <div key={log.id} className="p-4 hover:bg-slate-50/50 transition-colors flex items-start gap-4">
-                                <Avatar className="h-9 w-9 border-2 border-white shadow-sm italic text-[10px]">
+                            <div key={log.id} className="p-4 hover:bg-gradient-to-r hover:from-slate-50/80 hover:to-transparent transition-all duration-300 flex items-start gap-4 group">
+                                <Avatar className="h-9 w-9 border-2 border-white shadow-sm italic text-[10px] group-hover:scale-110 transition-transform duration-300">
                                     <AvatarImage src={`https://avatar.vercel.sh/${log.profiles?.full_name || 'agent'}`} />
-                                    <AvatarFallback className="bg-slate-100 text-slate-600 font-bold uppercase">
+                                    <AvatarFallback className="bg-gradient-to-br from-slate-100 to-slate-200 text-slate-600 font-bold uppercase">
                                         {(log.profiles?.full_name || 'A')[0]}
                                     </AvatarFallback>
                                 </Avatar>
@@ -137,10 +137,10 @@ export function ActivityFeed({ initialLogs }: { initialLogs: ActivityLog[] }) {
                                         )}
                                     </p>
                                     <div className="flex items-center gap-2">
-                                        <div className="p-1 rounded bg-slate-100">
+                                        <div className="p-1.5 rounded-lg bg-gradient-to-br from-slate-100 to-slate-200 group-hover:shadow-md transition-shadow duration-300">
                                             {getIcon(log.type)}
                                         </div>
-                                        <span className="text-[10px] font-bold text-muted-foreground uppercase">
+                                        <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wide">
                                             {formatDistanceToNow(new Date(log.created_at), { addSuffix: true })}
                                         </span>
                                     </div>

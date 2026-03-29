@@ -88,12 +88,12 @@ export default async function DashboardPage() {
             {/* Header */}
             <div className="flex items-center justify-between">
                 <div>
-                    <h1 className="text-3xl font-bold tracking-tight text-slate-900 leading-none">Command Center</h1>
+                    <h1 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent leading-none">Command Center</h1>
                     <p className="text-muted-foreground mt-2 font-medium">
-                        Welcome back, <span className="text-slate-900">{profile.full_name || user.email}</span>
+                        Welcome back, <span className="text-slate-900 font-semibold">{profile.full_name || user.email}</span>
                     </p>
                 </div>
-                <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-xl border shadow-sm ring-1 ring-slate-100">
+                <div className="flex items-center gap-2 bg-white/90 backdrop-blur-xl px-4 py-2.5 rounded-xl border border-border/60 shadow-lg ring-1 ring-slate-100 hover:shadow-xl transition-all duration-300">
                     <div className="relative">
                         <TrendingUp className="h-4 w-4 text-green-500" />
                         <span className="absolute -top-1 -right-1 flex h-2 w-2">
@@ -123,8 +123,8 @@ export default async function DashboardPage() {
             <div className="grid gap-8 lg:grid-cols-12">
                 {/* Left Side: Stats & Charts */}
                 <div className="lg:col-span-8 space-y-8">
-                    <Card className="border-none shadow-sm ring-1 ring-slate-200 bg-white">
-                        <CardHeader className="border-b bg-slate-50/50">
+                    <Card className="border-none shadow-lg ring-1 ring-slate-200 bg-white/90 backdrop-blur-xl overflow-hidden">
+                        <CardHeader className="border-b bg-gradient-to-r from-slate-50/80 to-transparent">
                             <div className="flex items-center gap-2">
                                 <BarChart3 className="h-5 w-5 text-primary" />
                                 <div className="space-y-0.5">
